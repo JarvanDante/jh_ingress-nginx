@@ -1,0 +1,38 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jh-prod
+  namespace: jh-prod
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: jh-h5.panalow.cc
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jh-h5
+                port:
+                  number: 80
+    - host: jh-admin.panalow.cc
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jh-backend
+                port:
+                  number: 80
+    - host: jh-manage.panalow.cc
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jh-manage-backend
+                port:
+                  number: 80
