@@ -36,3 +36,13 @@ spec:
                 name: jh-manage-backend
                 port:
                   number: 80
+    - host: jh-ldy.panalow.cc
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jh-ldy
+                port:
+                  number: 80
